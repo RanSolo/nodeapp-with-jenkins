@@ -1,20 +1,20 @@
-job('NodeJS Docker example') {
+job('VidlyDocker') {
     scm {
-        git('git://github.com/wardviaene/docker-demo.git') {  node -> // is hudson.plugins.git.GitSCM
-            node / gitConfigName('DSL User')
-            node / gitConfigEmail('jenkins-dsl@newtech.academy')
+        git('git://github.com/ransolo/vidly.git') {  node -> // is hudson.plugins.git.GitSCM
+            node / gitConfigName('RandallDSL')
+            node / gitConfigEmail('ransolo@me.com')
         }
     }
     triggers {
         scm('H/5 * * * *')
     }
     wrappers {
-        nodejs('NodeJS') // this is the name of the NodeJS installation in 
+        nodejs('nodejs') // this is the name of the NodeJS installation in 
                          // Manage Jenkins -> Configure Tools -> NodeJS Installations -> Name
     }
     steps {
         dockerBuildAndPublish {
-            repositoryName('wardviaene/docker-nodejs-demo')
+            repositoryName('ransolo/nodeapp-with-jenkins')
             tag('${GIT_REVISION,length=9}')
             registryCredentials('dockerhub')
             forcePull(false)
