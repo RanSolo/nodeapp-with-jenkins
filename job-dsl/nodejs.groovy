@@ -1,6 +1,6 @@
 job('Vidly') {
     scm {
-        git('git://github.com/ransolo/vidly.git') {  node -> // is hudson.plugins.git.GitSCM
+        git('https://github.com/RanSolo/vidly.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL User')
             node / gitConfigEmail('ransolo@me.com')
         }

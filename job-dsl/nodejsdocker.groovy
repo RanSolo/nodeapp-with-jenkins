@@ -1,6 +1,6 @@
 job('VidlyDocker') {
     scm {
-        git('git://github.com/ransolo/vidly.git') {  node -> // is hudson.plugins.git.GitSCM
+        git('https://github.com/RanSolo/vidly.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('RandallDSL')
             node / gitConfigEmail('ransolo@me.com')
         }
